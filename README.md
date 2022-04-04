@@ -10,3 +10,7 @@ We extract images pages from the PDF files followed by image preprocessing using
 
 ## Optical Character Recognition (OCR) ##
 We apply Tesseract OCR (version 4.0.0) via pytesseract to locate and extract machine-readable text from the preprocessed images. The output for each image is a mapping of extracted words and positions in pixels. We performed a data quality visual inspection by programmatically drawing outlines of each word onto the original images using the positions with OpenCV. 
+
+## Text processing ##
+Candidate words for AHI and SaO2 values are identified using a regular expression for words that match “[0-9.,%]+”. For each numeric value,  a segment of 10 words on each side of the candidate (21 words total) is used for context. 
+Code: 
