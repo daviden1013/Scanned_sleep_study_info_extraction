@@ -17,6 +17,7 @@ This is an information extraction OCR-NLP project. We use a random sampled set o
 
 ## Image preprocessing ##
 We extract images pages from the PDF files followed by image preprocessing using the Open Source Computer Vision Library (OpenCV, version 4.5.2). We first convert the 3-channel color images to 1-channel gray-scale to reduce computation commplexity, then dilate and erode each character by 1 iteration of transformation. The dilation process shrinks objects (characters) and results in the removal of small noise dots, while the erosion process converts the image back to the original scale. Finally, we increased the contrast by 20% thus background noises caused by scanning were further removed. 
+Code: [image preprocess](https://github.com/daviden1013/Scanned_sleep_study_info_extraction/tree/main/image%20preprocess)
 
 ## Optical Character Recognition (OCR) ##
 We apply Tesseract OCR (version 4.0.0) via pytesseract to locate and extract machine-readable text from the preprocessed images. The output for each image is a mapping of extracted words and positions in pixels. We performed a data quality visual inspection by programmatically drawing outlines of each word onto the original images using the positions with OpenCV. 
